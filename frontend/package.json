@@ -1,0 +1,41 @@
+{
+  "name": "seiken",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "build-css": "tailwindcss build style.css -o css/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "autoprefixer": "^10.4.7",
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0-beta1",
+    "bootstrap-icons": "^1.8.2",
+    "bootstrap4": "^0.0.1-security",
+    "build-css": "^0.0.1",
+    "isomorphic-fetch": "^3.0.0",
+    "jquery": "^3.6.0",
+    "next": "^12.1.6",
+    "nginx": "^1.0.7",
+    "postcss": "^8.4.14",
+    "react": "^18.1.0",
+    "react-aws-s3": "^1.5.0",
+    "react-dom": "^18.1.0",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.3.0",
+    "run": "^1.4.0",
+    "tailwind": "^4.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}

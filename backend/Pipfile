@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+clarifai = "*"
+requests = "*"
+clarifai-grpc = "*"
+wolframalpha = "*"
+api = "*"
+django = "*"
+django-rest-framework = "*"
+black = "*"
+isort = "*"
+pipfile = "*"
+django-jsonfield = "*"
+djangorestframework-simplejwt = "*"
+pillow = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
