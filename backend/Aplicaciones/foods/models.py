@@ -4,7 +4,7 @@ from django.db import models
 
 
 class FoodImageURL(models.Model):
-    url = models.URLField(max_length=250)
+    image_url = models.CharField(max_length=300)
 
 
 class Food(models.Model):

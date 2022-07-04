@@ -1,44 +1,44 @@
 import React, {useState} from 'react'
 import S3 from 'react-aws-s3';
-import { MdAddAPhoto } from "react-icons/fa";
-import { FaCamera } from 'react-icons/fa';
 
 
 export default function Hero() {
 
-
-  const [file, setFile] = useState('')
+  const [selectedFile, setSelectedFile] = useState('');
 
   const config = {
-    bucketName: 'foodmodelbucket',
-    region: 'us-east-1',
-    accessKeyId: 'AKIA32DKVD47H5NQKQ6R',
-    secretAccessKey: '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',
-}
+    bucketName: process.env.NEXT_PUBLIC_BUCKET_NAME,
+    region: process.env.NEXT_PUBLIC_REGION,
+    accessKeyId: process.env.NEXT_PUBLIC_ACCESS,
+    secretAccessKey: process.env.NEXT_PUBLIC_SECRET,
+    s3Url: "https://foodmodelbucket.s3.amazonaws.com",
+  }
 
-const ReactS3Client = new S3(config);
+  const handleFileInput = (e) => {
+    setSelectedFile(e.target.files[0]);
+  }
 
-// ReactS3Client
-//     .uploadFile(file, newFileName)
-//     .then(data => console.log(data))
-//     .catch(err => console.error(err))
-
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-  const file = {file};
-
-  fetch('http://127.0.0.1:8000/api/user-create/', {
+  const uploadFile = async (file) => {
+    const ReactS3Client = new S3(config);
+    ReactS3Client
+    .uploadFile(file, file.name)
+    .then(data => fetch('http://127.0.0.1:8000/api/image-create/', {
       method : 'POST',
       headers: {"Content-Type" : "application/json"},
-      body: JSON.stringify(usuario),
+      body: JSON.stringify({image_url:data.location}),
   }). then(() => {
-      console.log("Nuevo usuario añadido")
-      console.log(usuario)
+      console.log("Nueva imagen añadida")
+      console.log({image_url:data.location})
   })
+  )
+    .catch(err => console.error(err))
+  }
 
-  router.push('/thank-you')
-} 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();e.preventDefault();
+  //   const file = {file};
+
+
 
   return (
     <>
@@ -46,18 +46,11 @@ const handleSubmit = (e) => {
     <h1 className='text-center text-3xl'>¿Que comerás hoy?</h1>
     <p className='text-center text-s mt-3'>Toma una foto de tu comida y súbela para ver su información nutricional.</p>
 
-    <label className="block mt-4">
-      <form onSubmit={handleSubmit}>
+    <div>React S3 File Upload</div>
 
-          <input type="file" 
-          required 
-          name="first_name" 
-          className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" 
-          value={file} 
-          onChange={(e) => setFile(e.target.value)}
-          />
-      </form>
-    </label>
+        <input type="file" onChange={handleFileInput}/>
+        <br></br>
+        <button onClick={() => uploadFile(selectedFile)}> Upload to S3</button>
     
     <div className='grid grid-cols-2'>
     <h1 className='text-black text-center'>1. Sube una foto</h1>

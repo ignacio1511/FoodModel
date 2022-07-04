@@ -98,8 +98,11 @@ def imageDetail(request, pk):
 def imageCreate(request):
     serializer = FoodImageURLSerializer(data=request.data)
 
+    print(serializer)
+
     if serializer.is_valid():
         serializer.save()
+        print("SERIALIZER DATA ... ", serializer.data)
 
     return Response(serializer.data)
 

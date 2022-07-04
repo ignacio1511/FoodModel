@@ -8,7 +8,7 @@ wolfram_client = wolframalpha.Client("KAUE7Y-W9JK9EX9Q5")
 
 CLARIFAI_API_KEY = "d8b45673fe61436ca006239d65426472"
 APPLICATION_ID = "foodModelv2"
-IMAGE_URL = "https://img-global.cpcdn.com/recipes/1852fb63cc8561a6/680x482cq70/pollo-al-horno-con-arroz-con-queso-foto-principal.jpg"
+IMAGE_URL = "https://www.quimicaysociedad.org/wp-content/uploads/2015/06/platano.jpg"
 
 ## S3 AWS
 

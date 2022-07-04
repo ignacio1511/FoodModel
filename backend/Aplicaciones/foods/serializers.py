@@ -14,4 +14,4 @@ class FoodSerializer(serializers.ModelSerializer):
 class FoodImageURLSerializer(serializers.ModelSerializer):
     class Meta:
         model = FoodImageURL
-        fields = "__all__"
+        fields = ["image_url"]

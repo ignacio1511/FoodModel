@@ -17,6 +17,11 @@ pipfile = "*"
 django-jsonfield = "*"
 djangorestframework-simplejwt = "*"
 pillow = "*"
+django-cors-headers = "*"
+django-environ = "==0.9.0"
+dj-database-url = "*"
+python-decouple = "*"
+whitenoise = "*"
 
 [dev-packages]
 
